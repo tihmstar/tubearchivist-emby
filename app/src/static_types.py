@@ -9,9 +9,9 @@ class ConfigType(TypedDict):
     ta_video_path: str
     ta_url: str
     ta_token: str
-    jf_url: str
-    jf_token: str
-    jf_folder: str | None
+    emby_url: str
+    emby_token: str
+    emby_folder: str | None
 
 
 class TAChannel(TypedDict):

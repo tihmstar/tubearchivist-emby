@@ -36,9 +36,9 @@ def get_config_env() -> ConfigType | Literal[False]:
             "ta_video_path": "/youtube",
             "ta_url": os.environ["TA_URL"],
             "ta_token": os.environ["TA_TOKEN"],
-            "jf_url": os.environ["JF_URL"],
-            "jf_token": os.environ["JF_TOKEN"],
-            "jf_folder": os.environ['JF_FOLDER']
+            "emby_url": os.environ["EMBY_URL"],
+            "emby_token": os.environ["EMBY_TOKEN"],
+            "emby_folder": os.environ['EMBY_FOLDER']
         }
         return config_content
 

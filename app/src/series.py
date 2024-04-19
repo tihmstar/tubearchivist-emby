@@ -38,7 +38,7 @@ class Library:
         """get collection id for youtube folder"""
         path: str = "Items?Recursive=true&includeItemTypes=Folder"
         folders: dict = Jellyfin().get(path)
-        folder_name: str | None = get_config()["jf_folder"]
+        folder_name: str | None = get_config()["emby_folder"]
 
         if not folder_name or len(folder_name) < 1:
             folder_name = "youtube"

@@ -28,17 +28,17 @@ logging.basicConfig(
 
 CONFIG: ConfigType = get_config()
 TIMEOUT = 180
-#EXPECTED_ENV = {"ta_url", "ta_token", "jf_url", "jf_token", "ta_video_path"} # js_folder is optional
-EXPECTED_ENV = {'ta_video_path', 'jf_token', 'ta_url', 'jf_folder', 'ta_token', 'jf_url'} # js_folder is optional
+#EXPECTED_ENV = {"ta_url", "ta_token", "emby_url", "emby_token", "ta_video_path"} # js_folder is optional
+EXPECTED_ENV = {'ta_video_path', 'emby_token', 'ta_url', 'emby_folder', 'ta_token', 'emby_url'} # js_folder is optional
 
 
 class Jellyfin:
-    """connect to jellyfin"""
+    """connect to Jellyfin"""
 
     headers: dict = {
-        "Authorization": "MediaBrowser Token=" + CONFIG["jf_token"]
+        "Authorization": "MediaBrowser Token=" + CONFIG["emby_token"]
     }
-    base: str = CONFIG["jf_url"]
+    base: str = CONFIG["emby_url"]
 
     def get(self, path: str) -> dict:
         """make a get request"""

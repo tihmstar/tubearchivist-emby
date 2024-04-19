@@ -55,9 +55,9 @@ Take a look at the example docker-compose.yml provided.
 An example configuration is provided in the docker-compose.yml file. Configure these environment variables:
   - `TA_URL`: Full URL where Tube Archivist is reachable
   - `TA_TOKEN`: Tube Archivist API token, accessible from the settings page
-  - `JF_URL`: Full URL where emby is reachable
-  - `JF_TOKEN`: emby API token
-  - `JF_FOLDER`: Folder override if your folder is not named "YouTube" on your Filesystem.
+  - `emby_url`: Full URL where emby is reachable
+  - `emby_token`: emby API token
+  - `emby_folder`: Folder override if your folder is not named "YouTube" on your Filesystem.
   - `LISTEN_PORT`: Optionally change the port where the integration is listening for messages. Defaults to `8001`. If you change this, make sure to also change the json link for auto trigger as described below.
 
 Mount the `/youtube` folder from Tube Archivist also in this container at `/youtube` to give this integration access to the media archive.
@@ -86,9 +86,9 @@ pip install requests
 	- `ta_video_path`: Absolute path of your /youtube folder from Tube Archivist
 	- `ta_url`: Full URL where Tube Archivist is reachable
 	- `ta_token`: Tube Archivist API token, accessible from the settings page
-	- `jf_url`: Full URL where emby is reachable
-	- `jf_token`: emby API token
-    - `jf_folder`: Name of the folder where TubeArchivist puts the files into
+	- `emby_url`: Full URL where emby is reachable
+	- `emby_token`: emby API token
+    - `emby_folder`: Name of the folder where TubeArchivist puts the files into
 
 Then run the script from the main folder with python, e.g.
 ```python
