@@ -77,7 +77,7 @@ class Library:
     def _get_collection(self) -> str:
         """get youtube collection id"""
         folders: dict = Jellyfin().get("Library/MediaFolders")
-        #logging.info(f"folders: {folders}")
+        logging.info(f"folders: {folders}")
         for folder in folders["Items"]:
             if folder.get("Name") == "YouTube":
                 logging.info(f"find youtube: {folder}")
