@@ -96,7 +96,12 @@ class Library:
     def refresh_collection(self, collection_id: str) -> None:
         """trigger collection refresh"""
         path: str = f"Items/{collection_id}/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&ReplaceAllMetadata=false"  # noqa: E501
-        Jellyfin().post(path,"{}")
+        refresh_item: dict = {
+            "Recursive": True,
+            "ImageRefreshMode": 'Default',
+            "MetadataRefreshMode": 'Default',
+        }
+        Jellyfin().post(path,refresh_item)
 
         for _ in range(12):
             response = Jellyfin().get("Library/VirtualFolders")
