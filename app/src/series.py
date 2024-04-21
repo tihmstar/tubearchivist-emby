@@ -3,7 +3,6 @@
 import base64
 import os
 from time import sleep
-import pprint
 
 from src.config import get_config
 from src.connect import Jellyfin, TubeArchivist, clean_overview
@@ -102,14 +101,8 @@ class Library:
             "MetadataRefreshMode": 'Default',
         }
         Jellyfin().post(path,refresh_item)
-
-        for _ in range(12):
-            response = Jellyfin().get("Library/VirtualFolders")
-            for folder in response:
-                if not folder["ItemId"] == collection_id:
-                    continue
-                pprint.pp(folder)
-                return
+        sleep(10)
+        
 
 class Show:
     """interact with a single show"""
