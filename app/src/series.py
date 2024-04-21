@@ -103,7 +103,7 @@ class Library:
                 if not folder["ItemId"] == collection_id:
                     continue
 
-                if folder["RefreshStatus"] == "Idle":
+                if folder.get("RefreshStatus","") == "Idle":
                     return
 
                 print("waiting for library refresh")
