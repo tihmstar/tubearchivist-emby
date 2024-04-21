@@ -3,6 +3,7 @@
 import base64
 import os
 from time import sleep
+import pprint
 
 from src.config import get_config
 from src.connect import Jellyfin, TubeArchivist, clean_overview
@@ -107,6 +108,7 @@ class Library:
                     return
 
                 print("waiting for library refresh")
+                pprint.pp(folder)
                 sleep(5)
 
 
