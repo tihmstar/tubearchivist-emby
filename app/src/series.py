@@ -96,13 +96,14 @@ class Library:
     def refresh_collection(self, collection_id: str) -> None:
         """trigger collection refresh"""
         path: str = f"Items/{collection_id}/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default"  # noqa: E501
-        #Jellyfin().post(path, False)
+        Jellyfin().post(path, False)
 
         for _ in range(12):
             response = Jellyfin().get("Library/VirtualFolders")
             for folder in response:
                 if not folder["ItemId"] == collection_id:
-                    continue               
+                    continue
+                pprint.pp(folder)
                 return
 
 class Show:
