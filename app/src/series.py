@@ -102,15 +102,8 @@ class Library:
             response = Jellyfin().get("Library/VirtualFolders")
             for folder in response:
                 if not folder["ItemId"] == collection_id:
-                    continue
-
-                if folder.get("RefreshStatus","") == "Idle":
-                    return
-
-                print("waiting for library refresh")
-                pprint.pp(folder)
-                sleep(5)
-
+                    continue               
+                return
 
 class Show:
     """interact with a single show"""
