@@ -8,9 +8,9 @@ services:
     environment:
       - TA_URL=http://ta.lab
       - TA_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      - emby_url=http://emby.lab
-      - emby_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      - emby_folder=youTube_tubearchivist
+      - EMBY_URL=http://emby.lab
+      - EMBY_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      - EMBY_FOLDER=youTube_tubearchivist
     volumes:
       - ./logs:/app/logs
       - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime

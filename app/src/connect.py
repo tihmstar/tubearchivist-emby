@@ -44,7 +44,7 @@ class Jellyfin:
         """make a get request"""
         url: str = f"{self.base}/{path}"
         logging.info(f"url: {url}")
-        response = requests.get(url, headers=self.headers, timeout=TIMEOUT)
+        response = requests.get(url, headers=self.headers, timeout=TIMEOUT, verify=False)
         if response.ok:
             return response.json()
 
@@ -56,7 +56,7 @@ class Jellyfin:
         url: str = f"{self.base}/{path}"
         logging.info(f"url: {url}")
         response = requests.post(
-            url, headers=self.headers, json=data, timeout=TIMEOUT
+            url, headers=self.headers, json=data, timeout=TIMEOUT, verify=False
         )
         if not response.ok:
             print(response.text)
@@ -69,7 +69,7 @@ class Jellyfin:
         new_headers: dict = self.headers.copy()
         new_headers.update({"Content-Type": "image/jpeg"})
         response = requests.post(
-            url, headers=new_headers, data=thumb_base64, timeout=TIMEOUT
+            url, headers=new_headers, data=thumb_base64, timeout=TIMEOUT, verify=False
         )
         if not response.ok:
             print(response.text)
@@ -97,7 +97,7 @@ class TubeArchivist:
         response = requests.get(url, headers=self.headers, timeout=TIMEOUT)
 
         if response.ok:
-            ta_video: TAVideo = response.json()["data"]
+            ta_video: TAVideo = response.json()
             return ta_video
 
         raise ValueError(f"video not found in TA: {url}")
@@ -107,7 +107,7 @@ class TubeArchivist:
         url: str = f"{self.base}/api/channel/{channel_id}/"
         response = requests.get(url, headers=self.headers, timeout=TIMEOUT)
         if response.ok:
-            ta_channel: TAChannel = response.json()["data"]
+            ta_channel: TAChannel = response.json()
             return ta_channel
 
         print(f"channel not found in TA: {url}")
